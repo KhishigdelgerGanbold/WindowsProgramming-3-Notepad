@@ -42,34 +42,29 @@ namespace Khishigdelger_NotepadCSharp
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             if (e.CloseReason == CloseReason.UserClosing)
             {
-            
+
                 if (richTextBox1.Modified == true)
                 {
-                    DialogResult result = MessageBox.Show("Гарахаас өмнө одоогийн ажилаа хадгалах уу?\nYes - Хадгалах No - Хадгалахгүй", "Анхааруулга!", MessageBoxButtons.YesNo);
-
-                    if (result == DialogResult.Yes)
-
+                    using (CustomDialogBox cdb = new CustomDialogBox())
                     {
-                        saveFile();
-                        richTextBox1.Modified = false;
-                        Application.Exit();
+                        if (cdb.ShowDialog() == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            saveFile();
+                            richTextBox1.Modified = false;
+                            Application.Exit();
+                        }
+                        else
+                        {
+                            richTextBox1.Modified = false;
+                            Application.Exit();
+                        }
                     }
-
-                    else
-
-                    {
-                        richTextBox1.Modified = false;
-                        Application.Exit();
-                    }
-                }
-                else
-                {
-                    richTextBox1.Modified = false;
-                    Application.Exit();
                 }
             }
+
             else
             {
                 richTextBox1.Modified = false;
@@ -199,21 +194,19 @@ namespace Khishigdelger_NotepadCSharp
         {
             if (richTextBox1.Modified == true)
             {
-                DialogResult result = MessageBox.Show("Гарахаас өмнө одоогийн ажилаа хадгалах уу?\nYes - Хадгалах No - Хадгалахгүй", "Анхааруулга!", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-
+                using (CustomDialogBox cdb = new CustomDialogBox())
                 {
-                    saveFile();
-                    richTextBox1.Modified = false;
-                    Application.Exit();
-                }
-
-                else
-
-                {
-                    richTextBox1.Modified = false;
-                    Application.Exit();
+                    if (cdb.ShowDialog() == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        saveFile();
+                        richTextBox1.Modified = false;
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        richTextBox1.Modified = false;
+                        Application.Exit();
+                    }
                 }
             }
             else
@@ -224,8 +217,7 @@ namespace Khishigdelger_NotepadCSharp
 
         }
 
-        
-
+  
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             checker = true;
@@ -269,6 +261,7 @@ namespace Khishigdelger_NotepadCSharp
                 richTextBox1.Redo();
             }
         }
+
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
