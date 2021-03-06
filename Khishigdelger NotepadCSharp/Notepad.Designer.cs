@@ -1,7 +1,7 @@
 ﻿
 namespace Khishigdelger_NotepadCSharp
 {
-    partial class Form1
+    partial class Notepad
     {
         /// <summary>
         /// Required designer variable.

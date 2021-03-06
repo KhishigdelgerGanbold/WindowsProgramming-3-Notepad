@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Khishigdelger_NotepadCSharp
 {
-    public partial class Form1 : Form
+    public partial class Notepad : Form
     {
         private OpenFileDialog openfd;
         private SaveFileDialog savefd;
@@ -29,7 +29,7 @@ namespace Khishigdelger_NotepadCSharp
             file_name = str;
         }
 
-        public Form1()
+        public Notepad()
         {
             InitializeComponent();
             this.FormClosing += Form1_FormClosing;
@@ -70,9 +70,14 @@ namespace Khishigdelger_NotepadCSharp
                     Application.Exit();
                 }
             }
-                
+            else
+            {
+                richTextBox1.Modified = false;
+                Application.Exit();
+            }
 
-                if (e.CloseReason == CloseReason.WindowsShutDown)
+
+            if (e.CloseReason == CloseReason.WindowsShutDown)
                 {
                 return;
                 }
@@ -83,7 +88,7 @@ namespace Khishigdelger_NotepadCSharp
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
-            if (!string.IsNullOrEmpty(this.richTextBox1.Text))
+            if (richTextBox1.Modified == true)
             {
                 result = MessageBox.Show("Шинэ файл нээхээс өмнө одоогийн файлаа хадгалах уу?\nYes - Хадгалах No - Хадгалахгүй", "Анхааруулга!", buttons);
                 if (result == DialogResult.Yes)

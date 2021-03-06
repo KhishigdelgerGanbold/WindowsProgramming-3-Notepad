@@ -1,0 +1,10 @@
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\bin\Debug\Khishigdelger NotepadCSharp.exe.config
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\bin\Debug\Khishigdelger NotepadCSharp.exe
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\bin\Debug\Khishigdelger NotepadCSharp.pdb
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger NotepadCSharp.csprojAssemblyReference.cache
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger_NotepadCSharp.Form1.resources
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger_NotepadCSharp.Properties.Resources.resources
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger NotepadCSharp.csproj.GenerateResource.cache
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger NotepadCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger NotepadCSharp.exe
+C:\Users\Khishigdelger\source\repos\Khishigdelger NotepadCSharp\obj\Debug\Khishigdelger NotepadCSharp.pdb
