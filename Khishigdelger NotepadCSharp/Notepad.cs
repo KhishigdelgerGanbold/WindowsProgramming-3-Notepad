@@ -18,6 +18,7 @@ namespace Khishigdelger_NotepadCSharp
         private FontDialog fd;
         private string file_name;
         public bool checker = false;
+        private int pos = 0;
 
         public string GetName()
         {
@@ -33,6 +34,19 @@ namespace Khishigdelger_NotepadCSharp
         {
             InitializeComponent();
             this.FormClosing += Form1_FormClosing;
+
+            if(File.Exists(@"D:\Temp\saveInfo.txt") == false)
+            {
+                File.WriteAllText(@"D:\Temp\saveInfo.txt", "");
+            }
+            if (File.Exists(@"D:\Temp\saveInfoPos.txt") == false)
+            {
+                File.WriteAllText(@"D:\Temp\saveInfoPos.txt", "");
+            }
+            richTextBox1.Text = File.ReadAllText(@"D:\Temp\saveInfo.txt");
+            string str = File.ReadAllText(@"D:\Temp\saveInfoPos.txt");
+            int readpos = int.Parse(str);
+            save_pos(readpos);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,9 +56,14 @@ namespace Khishigdelger_NotepadCSharp
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Point curPos = Cursor.Position;
+            pos = richTextBox1.GetCharIndexFromPosition(curPos);
+            File.WriteAllText(@"D:\Temp\saveInfo.txt", richTextBox1.Text);
+            File.WriteAllText(@"D:\Temp\saveInfoPos.txt", pos.ToString());
 
             if (e.CloseReason == CloseReason.UserClosing)
             {
+
 
                 if (richTextBox1.Modified == true)
                 {
@@ -70,12 +89,6 @@ namespace Khishigdelger_NotepadCSharp
                 richTextBox1.Modified = false;
                 Application.Exit();
             }
-
-
-            if (e.CloseReason == CloseReason.WindowsShutDown)
-                {
-                return;
-                }
         
          }
 
@@ -304,6 +317,19 @@ namespace Khishigdelger_NotepadCSharp
             {
                 File.WriteAllText(savefd.FileName, this.richTextBox1.Text);
             }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_pos(int p)
+        {
+            richTextBox1.SelectionStart = p+1;
+            richTextBox1.SelectionLength = 0;
+            richTextBox1.ScrollToCaret();
+            richTextBox1.Focus();
         }
     }
 }
